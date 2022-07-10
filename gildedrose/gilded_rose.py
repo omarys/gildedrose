@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-
-
 class GildedRose:
     @staticmethod
     def update_quality(items):
