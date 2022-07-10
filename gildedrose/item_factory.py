@@ -55,7 +55,7 @@ class Backstage(RegularItem):
             self.quality = self.quality + 2
         elif 5 >= self.sell_in > 0:
             self.quality = self.quality + 3
-        elif self.quality <= 0:
+        elif self.sell_in <= 0:
             self.quality = 0
         else:
             self.quality = self.quality + 1
