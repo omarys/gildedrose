@@ -9,10 +9,10 @@ class ItemFactory(object):
         if name == "Conjured Mana Cake":
             return Conjured(name, sell_in, quality)
         else:
-            return RegularItem(name, sell_in, quality)
+            return Item(name, sell_in, quality)
 
 
-class RegularItem(object):
+class Item(object):
     def __init__(self, name, sell_in, quality):
         self.name = name
         self.quality = quality
@@ -30,7 +30,7 @@ class RegularItem(object):
         self.sell_in = self.sell_in - 1
 
 
-class AgedBrie(RegularItem):
+class AgedBrie(Item):
     def update_quality(self):
         if self.quality < 50:
             self.quality = self.quality + 1
@@ -38,18 +38,18 @@ class AgedBrie(RegularItem):
         self.sell_in = self.sell_in - 1
 
 
-class Sulfuras(RegularItem):
+class Sulfuras(Item):
     def update_quality(self):
         pass
 
 
-class Conjured(RegularItem):
+class Conjured(Item):
     def update_quality(self):
         self.quality = (self.quality - 2) if self.quality > 2 else 0
         self.sell_in = self.sell_in - 1
 
 
-class Backstage(RegularItem):
+class Backstage(Item):
     def update_quality(self):
         if 10 >= self.sell_in > 5:
             self.quality = self.quality + 2
